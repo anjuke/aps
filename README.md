@@ -139,7 +139,7 @@ v1.2, Sep. 2013
   
 The following optional extra message
 
-  * Frame 5: KEY: VALUE (printable string)
+  * Frame 5: (octets)
   * ...
 
 #### REPLY
@@ -149,8 +149,13 @@ The following optional extra message
 
 Following optional extra message
 
-  * Frame 4: KEY: VALUE (printable string)
+  * Frame 4: (octets)
   * ...
+
+
+#### Extra Messages
+
+  扩展信息由客户端与服务端自行协商定义。因此可以没有扩展信息的frame，也可以有一个或多个frames。
 
 #### Method Conventions
 
