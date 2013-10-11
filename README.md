@@ -1,6 +1,6 @@
 # Anjuke Private Service
 Zhang Erning <erning@anjuke.com>  
-v1.2, Sep. 2013
+v1.2, Oct. 2013
 
 
 ## Goal
@@ -159,12 +159,13 @@ Following optional extra message
 
 #### Method Conventions
 
-方法名是可以显示的英文字母数字以及下划线组成。点符号(`.`)允许作为方法名的一部分，具有分割方法名的用途。
+方法名是可以显示的英文字母数字以及下划线组成。点符号(`.`)与冒号(`:`)允许作为方法名的一部分，具有分割方法名的用途。
 
   * `method` - 简单函数调用形式
   * `resource.method` - 类REST风格，例如 `users.get`、`users.post`、`users.$uid.patch`
   * `package.module.method` - Java/Python的方法调用形式
   * `.method`  - 点开头的方法作为保留方法，留给APS服务端使用
+  * `:service:module.method` - 冒号开头保留给通过proxy调用时使用，service在两个冒号之间
 
 保留方法
 
@@ -174,7 +175,7 @@ Following optional extra message
 
 ## Availability
 
-See project [kite-line](../../../kite-line).
+See project [Kite-Line](../../../kite-line).
 
 ## Realibility
 
