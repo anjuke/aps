@@ -156,7 +156,17 @@ Following optional extra message
 
 #### Extra Messages
 
-  扩展信息由客户端与服务端自行协商定义。因此可以没有扩展信息的frame，也可以有一个或多个frames。
+扩展信息由客户端与服务端自行协商定义。因此可以没有扩展信息的frame，也可以有一个或多个frames。
+
+扩展信息采用Key/Value形式，类似HTTP协议里的Header。一个frame一组KV。采用MessagePack格式。
+
+这个frame里实际是一个msgpack过的array(sequence,tuple)，第一个元素是key，之后的元素是value。一般情况下，这个frame里存的是一个2维的数组。
+
+例如:
+
+ * Frame 5: `msgpack(['sender', $senderID])`
+ * Frame 6: `msgpack(['version', $version])`
+
 
 #### Method Conventions
 
@@ -165,7 +175,7 @@ Following optional extra message
   * `method` - 简单函数调用形式
   * `resource.method` - 类REST风格，例如 `users.get`、`users.post`、`users.$uid.patch`
   * `package.module.method` - Java/Python的方法调用形式
-  * `.method`  - 点开头的方法作为保留方法，留给APS服务端使用
+  * `.method`  - 点开头的方法作为保留方法，留给APS服务的特殊方法使用
   * `:service:module.method` - 冒号开头保留给通过proxy调用时使用，service在两个冒号之间
 
 保留方法
